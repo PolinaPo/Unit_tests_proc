@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "CppUnitTest.h"
-#include "..\Proc_1\program.h"
-#include "..\Proc_1\program.cpp"
+#include "..\..\Proc_1\program.h"
+#include "..\..\Proc_1\program.cpp"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace type_plants;
