@@ -381,7 +381,7 @@ namespace UnitTest1
 		}
 
 		
-		// Тест функции Output_only_tree() без афоризмов в контейнере
+		// Тест функции Output_only_tree() без деревьев в контейнере
 		TEST_METHOD(Test_Output_only_tree_Without_tree)
 		{
 			ifstream ifst("In_Without_tree.txt"); // Входной файл, содержащий 2 элемента
