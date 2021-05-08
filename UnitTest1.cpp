@@ -270,85 +270,12 @@ namespace UnitTest1
 			Assert::AreEqual(atoi(s.c_str()), 4);
 		}
 
-		/*
-		// Тест функций aphorism_Output()
-		TEST_METHOD(TestOutputAphorism)
-		{
-			ifstream ifst("InputAphorism.txt");
-			ofstream ofst("OutputAphorism.txt");
-			container* c = new container;
-			container_Init(c);
-			container_Fill(c, ifst);
-			container_Output(c, ofst);
-			container_Clear(c);
-			ifst.close();
-			ofst.close();
-
-			ifstream pattern("PatternOutputAphorism.txt");
-			ifstream current("OutputAphorism.txt");
-			int res = compare(current, pattern);
-			pattern.close();
-			current.close();
-
-			Assert::AreEqual((res + 1), 0);
-		}
-		*/
-
-		/*
-		// Тест функции proverb_Output()
-		TEST_METHOD(TestOutputProverb)
-		{
-			ifstream ifst("InputProverb.txt");
-			ofstream ofst("OutputProverb.txt");
-			container* c = new container;
-			container_Init(c);
-			container_Fill(c, ifst);
-			container_Output(c, ofst);
-			container_Clear(c);
-			ifst.close();
-			ofst.close();
-
-			ifstream pattern("PatternOutputProverb.txt");
-			ifstream current("OutputProverb.txt");
-			int res = Compare(current, pattern);
-			pattern.close();
-			current.close();
-
-			Assert::AreEqual((res + 1), 0);
-		}
-		*/
-
-		/*
-		// Тест функции riddle_Output()
-		TEST_METHOD(TestOutputRiddle)
-		{
-			ifstream ifst("InputRiddle.txt");
-			ofstream ofst("OutputRiddle.txt");
-			container* c = new container;
-			container_Init(c);
-			container_Fill(c, ifst);
-			container_Output(c, ofst);
-			container_Clear(c);
-			ifst.close();
-			ofst.close();
-
-			ifstream pattern("PatternOutputRiddle.txt");
-			ifstream current("OutputRiddle.txt");
-			int res = Compare(current, pattern);
-			pattern.close();
-			current.close();
-
-			Assert::AreEqual((res + 1), 0);
-		}
-		*/
-
-		/*
 		int Compare(ifstream& ifst_1, ifstream& ifst_2)
 		{
-			char c1;
-			char c2;
+			char c1, c2;
 			int pos = -1;
-			while (ifst_1.get(c1) && ifst_2.get(c2)) {
+			while (ifst_1.get(c1) && ifst_2.get(c2)) 
+			{
 				pos++;
 				if (c1 != c2)
 				{
@@ -357,60 +284,129 @@ namespace UnitTest1
 			}
 			return -1;
 		}
-		*/
-
-		/*
-		// Тест функции aphorism_Out() для пустого контейнера
-		TEST_METHOD(OutputOnlyAphorismsFromEmptyCont)
+		
+		// Тест функций tree_Output()
+		TEST_METHOD(Test_Output_tree)
 		{
-			ifstream ifst("InputContainer0.txt"); // В файле пусто
-			ofstream ofst("OutputOnlyAphorism0.txt");
+			ifstream ifst("In_tree.txt");
+			ofstream ofst("Out_tree.txt");
 			container* c = new container;
 			container_Init(c);
 			container_Fill(c, ifst);
-			aphorism_Out(c, ofst); // В выходном файле "Only aphorisms"
+			container_Output(c, ofst);
 			container_Clear(c);
 			ifst.close();
 			ofst.close();
 
-			ifstream input_file("OutputOnlyAphorism0.txt");
-			string s;
-			int real_len = 0;
-			while (input_file.peek() != EOF) {
-				getline(input_file, s);
-				real_len++;
-			}
-			input_file.close();
+			ifstream pattern("Pattern_Out_tree.txt");
+			ifstream current("Out_tree.txt");
+			int res = Compare(current, pattern);
+			pattern.close();
+			current.close();
 
-			Assert::AreEqual((real_len - 1) / 4, 0);
+			Assert::AreEqual((res + 1), 0);
 		}
-		*/
-
-		/*
-		// Тест функции aphorism_Out() без афоризмов в контейнере
-		TEST_METHOD(OutputAphorismsFromContWithoutAphors)
+		
+		// Тест функций bash_Output()
+		TEST_METHOD(Test_Output_bush)
 		{
-			ifstream ifst("InputContWithoutAphos.txt"); //В файле 2 мудрости
-			ofstream ofst("OutputContWithoutAphos.txt");
+			ifstream ifst("In_bush.txt");
+			ofstream ofst("Out_bush.txt");
 			container* c = new container;
 			container_Init(c);
 			container_Fill(c, ifst);
-			aphorism_Out(c, ofst); // В выходном файле "Only aphorisms"
+			container_Output(c, ofst);
 			container_Clear(c);
 			ifst.close();
 			ofst.close();
 
-			ifstream input_file("OutputContWithoutAphos.txt");
-			string s;
-			int real_len = 0;
-			while (input_file.peek() != EOF) {
-				getline(input_file, s);
-				real_len++;
+			ifstream pattern("Pattern_Out_bush.txt");
+			ifstream current("Out_bush.txt");
+			int res = Compare(current, pattern);
+			pattern.close();
+			current.close();
+
+			Assert::AreEqual((res + 1), 0);
+		}
+
+		// Тест функций flower_Output()
+		TEST_METHOD(Test_Output_flower)
+		{
+			ifstream ifst("In_flower.txt");
+			ofstream ofst("Out_flower.txt");
+			container* c = new container;
+			container_Init(c);
+			container_Fill(c, ifst);
+			container_Output(c, ofst);
+			container_Clear(c);
+			ifst.close();
+			ofst.close();
+
+			ifstream pattern("Pattern_Out_flower.txt");
+			ifstream current("Out_flower.txt");
+			int res = Compare(current, pattern);
+			pattern.close();
+			current.close();
+
+			Assert::AreEqual((res + 1), 0);
+		}
+		
+
+		// Тест функции Output_only_tree() для пустого контейнера
+		TEST_METHOD(Test_Output_only_tree_Empty)
+		{
+			ifstream ifst("In_Empty.txt"); // Пустой входной файл
+			ofstream ofst("Out_only_tree_Empty.txt");
+			container* c = new container;
+			container_Init(c);
+			container_Fill(c, ifst);
+			Output_only_tree(c, ofst);
+			container_Clear(c);
+			ifst.close();
+			ofst.close();
+
+			ifstream input_file("Out_only_tree_Empty.txt");
+
+			int count_string = 0;
+			while (input_file.ignore(numeric_limits<streamsize>::max(), '\n'))
+			{
+				if (!input_file.eof())
+					count_string++;
 			}
+			count_string = count_string + 1;
+
 			input_file.close();
 
-			Assert::AreEqual((real_len - 1) / 4, 0);
+			Assert::AreEqual((count_string - 1) / 4, 0);
 		}
-		*/
+
+		
+		// Тест функции Output_only_tree() без афоризмов в контейнере
+		TEST_METHOD(Test_Output_only_tree_Without_tree)
+		{
+			ifstream ifst("In_Without_tree.txt"); // Входной файл, содержащий 2 элемента
+			ofstream ofst("Out_only_tree_Without_tree.txt");
+			container* c = new container;
+			container_Init(c);
+			container_Fill(c, ifst);
+			Output_only_tree(c, ofst);
+			container_Clear(c);
+			ifst.close();
+			ofst.close();
+
+			ifstream input_file("Out_only_tree_Without_tree.txt");
+			int count_string = 0;
+			while (input_file.ignore(numeric_limits<streamsize>::max(), '\n'))
+			{
+				if (!input_file.eof())
+					count_string++;
+			}
+			count_string = count_string + 1;
+
+			input_file.close();
+
+			Assert::AreEqual((count_string - 2) / 4, 0);
+		}
+		
 	};
 }
