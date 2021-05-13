@@ -141,7 +141,7 @@ namespace UnitTest1
 			container* c = new container;
 			container_Init(c);
 			container_Fill(c, ifst);
-			Sort(c);
+			sort(c);
 			container_Output(c, ofst);
 			ifst.close();
 			ofst.close();
@@ -169,7 +169,7 @@ namespace UnitTest1
 			container* c = new container;
 			container_Init(c);
 			container_Fill(c, ifst);
-			Sort(c);
+			sort(c);
 			container_Output(c, ofst);
 			ifst.close();
 			ofst.close();
@@ -186,7 +186,7 @@ namespace UnitTest1
 			container* c = new container;
 			container_Init(c);
 			container_Fill(c, ifst);
-			Sort(c);
+			sort(c);
 			container_Output(c, ofst);
 			ifst.close();
 			ofst.close();
